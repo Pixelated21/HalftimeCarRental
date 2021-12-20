@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Auth;
 
 use Auth;
-use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Login extends Component
@@ -11,62 +10,37 @@ class Login extends Component
 
     public $email;
     public $password;
+    public $rememberMe;
 
     protected $rules = [
         'email' => 'required',
-        'password' => 'required',
+        'password' => 'required'
     ];
 
-    public function updated(): void
+    public function updated()
     {
         $this->validate();
     }
 
-    public function authenticate()
+    public function loginUser()
     {
-        sleep(1);
         $this->validate();
-
-        if (Auth::attempt([
-            'email' => $this->email,
-            'password' => $this->password
-        ])) {
-            if (Auth::user()->status === 1) {
-                sleep(2);
-
-                $this->dispatchBrowserEvent('alert');
-                session()->put('alertType','success');
-                session()->put('alertTitle','You Will Be Redirected Shortly');
-
-                sleep(1);
-
-                if (Auth::user()->role->role === 'admin') {
-                    return redirect()->route('prox-homepage');
-                }
-                if (Auth::user()->role->role === 'user') {
-                    return redirect()->route('prox-homepage');
-                }
-            }
-            $this->dispatchBrowserEvent('alert');
-            session()->put('alertType','error');
-            session()->put('alertTitle','Your Account Has Been Disabled');
-
-
-        } else {
-            $this->dispatchBrowserEvent('alert');
-            session()->put('alertType','info');
-            session()->put('alertTitle','Authentication Failed');
-
-        }
-
-
+//
+//        if (Auth::attempt([
+//            'email' => $this->email,
+//            'password' => $this->password,
+//        ], $this->rememberMe)) {
+//            if ($this->rememberMe === false) {
+//                Auth::user()->remember_token = null;
+//            }
+//            $this->emit('alert','success','You will be redirected shortly.');
+//
+//            return redirect()->intended('/testing');
+//        }
+        $this->emit('alert','error','Credentials Invalid');
     }
 
-
-    /**
-     * @return View
-     */
-    public function render(): View
+    public function render()
     {
         return view('livewire.auth.login');
     }

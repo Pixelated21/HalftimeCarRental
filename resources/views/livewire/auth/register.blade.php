@@ -1,64 +1,62 @@
-<div class="bg-gray-100 dark:bg-gray-900 w-full md:max-w-md lg:max-w-full md:mx-auto md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+<div class="bg-white dark:bg-dark-mode w-full overflow-y-auto  lg:max-w-full md:mx-auto md:mx-0 md:w-full xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
         flex items-center justify-center">
 
-
-    <div class="w-full flex justify-evenly flex-col h-full">
-
-
-        <h1 class="text-2xl  md:text-4xl font-bold leading-tight mt-12 dark:text-gray-200 ">Registration </h1>
-
-        <form wire:submit.prevent="createUser" class="space-y-3">
+    <div class="w-full h-auto ">
 
 
-            <div class="flex gap-5">
-                <x-Form.input wire:model="userInfo.fname" :error="$errors->first('userInfo.fname')" placeholder="First Name" autofocus/>
-                <x-Form.input wire:model="userInfo.lname" :error="$errors->first('userInfo.lname')" placeholder="Last Name"/>
+        <h1 class="text-xl md:text-4xl font-bold dark:text-gray-200 leading-tight my-5">Create a new account</h1>
+
+        <form class="mt-6 space-y-4" action="#" method="POST">
+
+
+            <div class="flex flex-col">
+                <x-form.inputs.normal-with-label-error placeholder="First Name" :label="true" title="First Name"/>
             </div>
 
-            <x-Form.input wire:model="user.email" :error="$errors->first('user.email')" placeholder="Email"/>
+            <div class="flex flex-col">
+                <x-form.inputs.normal-with-label-error placeholder="Last Name" :label="true" title="Last Name"/>
+            </div>
 
+            <div class="flex flex-col">
+                <x-form.inputs.normal-with-label-error placeholder="Email" :label="true" title="Email"/>
+            </div>
 
-            <x-Form.select wire:model="userInfo.salutation" :error="$errors->first('userInfo.salutation')">
-                <x-Form.select-options selected disabled title="Select Gender"/>
-                <x-Form.select-options value="Sir" title="Sir"/>
-                <x-Form.select-options value="Mr" title="Mr"/>
-                <x-Form.select-options value="Mrs" title="Mrs"/>
-                <x-Form.select-options value="Miss" title="Miss"/>
-            </x-Form.select>
+            <div class="grid grid-cols-2 gap-x-5">
+                <div class="flex flex-col">
+                    <x-form.inputs.normal-with-label-error placeholder="Password" :label="true" title="Password"/>
+                </div>
 
-            <x-Form.date wire:model="userInfo.dob" :error="$errors->first('userInfo.dob')" name="dob"/>
-
-            <div class="flex gap-5">
-                <x-Form.input type="password" wire:model="password" :error="$errors->first('password')" name="password" placeholder="Password"/>
-                <x-Form.input type="password" wire:model="password_confirmation" name="password_confirmation" placeholder="Verify Password"/>
+                <div class="flex flex-col">
+                    <x-form.inputs.normal-with-label-error placeholder="Verify Password" :label="true"
+                                                           title="Verify Password"/>
+                </div>
             </div>
 
 
-            <x-Buttons.button-1 class="bg-purple-600 font-semibold text-gray-300  hover:bg-purple-700 hover:text-white">
+            <div>
+                <x-form.buttons.button-with-spinner title="Register">
 
-                <x-slot name="spinner">
-                    <i wire:loading.delay.longer="cr    eateUser" class="gg-spinner-two-alt"></i>
-                </x-slot>
+                    <x-slot name="spinner">
+                        <i class="gg-spinner-two-alt"></i>
+                    </x-slot>
 
-                <x-slot name="title">
-                    Register
-                </x-slot>
+                </x-form.buttons.button-with-spinner>
+            </div>
 
-            </x-Buttons.button-1>
 
         </form>
 
-        <div>
-            <hr class="my-6 border-gray-500 w-full">
+        <hr class="my-6 border-gray-300 w-full">
 
-            <p class="text-center mt-8 dark:text-gray-200">Already Have an account?<br>
-                <a href="{{route('login')}}"
-                   class="text-purple-500 dark:text-gray-200 duration-300 dark:hover:text-purple-500 hover:text-purple-700  font-semibold">
-                    Login To Your Account
-                </a>
-            </p>
-        </div>
+
+        <p class="text-center mt-8 dark:text-gray-200">Already Have an account?<br>
+            <a href="{{url('login')}}"
+               class="text-purple-500 dark:text-gray-200  duration-300 dark:hover:text-purple-500 hover:text-purple-700  font-semibold">
+                Log Into Your Account
+            </a>
+        </p>
 
 
     </div>
 </div>
+

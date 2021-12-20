@@ -1,8 +1,5 @@
-@extends('Auth.auth-layout')
-
-@section('page_title','Prøxïmïtÿ Login')
-
+@extends('Auth.layout')
+@section('page_title','Register')
 @section('content')
-@livewire('auth.register')
+    @livewire('auth.register')
 @endsection
-

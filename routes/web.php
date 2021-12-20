@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('prox-homepage');
 
-Route::get('/testing',function (){
-   return view('Testing.testing');
+
+Route::get('/testing', function () {
+    return view('testing');
 });
 
-require __DIR__.'/authentication.php';
+Route::get('/login', function () {
+    return view('Auth.login');
+});
+
+Route::get('/register', function () {
+    return view('Auth.register');
+});
+
