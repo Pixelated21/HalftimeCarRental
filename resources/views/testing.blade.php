@@ -17,9 +17,7 @@
     @livewire('dynamic-table')
 @endsection
 
-@section('liveClock')
-    @livewire('live-clock')
-@endsection
+
 
 
 
@@ -32,7 +30,7 @@
         function copyToClipboard() {
             let text = document.getElementById('todo_item1').select();
             console.log(text)
-            document.execCommand('bold', true);
+            document.execCommand('copy', true);
 
         }
     </script>
