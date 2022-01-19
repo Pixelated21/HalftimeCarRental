@@ -1,4 +1,4 @@
-<div class="bg-white dark:bg-dark-mode w-full overflow-y-auto  lg:max-w-full md:mx-auto md:mx-0 md:w-full xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+<div class="bg-white dark:bg-dark-mode w-full overflow-y-auto  lg:max-w-full md:mx-auto md:mx-0 md:w-full xl:w-1/3 h-screen px-2 lg:px-16 xl:px-12
         flex items-center justify-center">
 
     <div class="w-full h-auto ">
@@ -10,18 +10,9 @@
 
 
             <div class="flex flex-col">
-                <x-form.inputs.normal-with-label-error placeholder="First Name" :label="true" title="First Name"/>
-            </div>
-
-            <div class="flex flex-col">
-                <x-form.inputs.normal-with-label-error placeholder="Last Name" :label="true" title="Last Name"/>
-            </div>
-
-            <div class="flex flex-col">
                 <x-form.inputs.normal-with-label-error placeholder="Email" :label="true" title="Email"/>
             </div>
 
-            <div class="grid grid-cols-2 gap-x-5">
                 <div class="flex flex-col">
                     <x-form.inputs.normal-with-label-error placeholder="Password" :label="true" title="Password"/>
                 </div>
@@ -30,7 +21,6 @@
                     <x-form.inputs.normal-with-label-error placeholder="Verify Password" :label="true"
                                                            title="Verify Password"/>
                 </div>
-            </div>
 
 
             <div>

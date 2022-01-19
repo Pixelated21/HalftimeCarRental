@@ -27,3 +27,6 @@ Route::get('/register', function () {
     return view('Auth.register');
 });
 
+Route::get('/', static function () {
+    return view('index');
+});

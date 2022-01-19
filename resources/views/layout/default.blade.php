@@ -12,17 +12,16 @@
     @livewireStyles
 </head>
 <body>
-
+<x-navbars.nav :auth="true" class="bg-black" alph-name="navigation" title="HALFTIME CAR RENTAL">
+    <x-slot name="end">
+        <x-navbars.xtra.nav-1-link title="Home"/>
+        <x-navbars.xtra.nav-1-link title="Contact Us"/>
+        <x-navbars.xtra.nav-1-link title="About Us"/>
+    </x-slot>
+</x-navbars.nav>
 @stack('alert')
 
-<section class="flex bg-white dark:bg-dark-mode flex-col md:flex-row h-screen items-center">
 
-    <div class="hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
-        <img src="https://source.unsplash.com/random" alt="" class="w-full h-full object-cover">
-    </div>
-
-    @yield('content')
-</section>
 
 @stack('scripts')
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>

@@ -17,7 +17,7 @@
 
                 <div class="block lg:ml-6">
                     <div class="flex space-x-4">
-                        <div class="dark:text-white text-black font-bold py-0.5 text-2xl">{{$title}}</div>
+                        <div class="dark:text-white text-black font-bold py-0.5 text-xl">{{$title}}</div>
                     </div>
                 </div>
 
